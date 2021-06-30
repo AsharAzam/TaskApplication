@@ -31,7 +31,9 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
     @Inject
     protected V mViewModel;
     public abstract int getBindingVariable();
-    public abstract @LayoutRes int getLayoutId();
+    public abstract
+    @LayoutRes
+    int getLayoutId();
     @Override
     public void onFragmentAttached() {
     }

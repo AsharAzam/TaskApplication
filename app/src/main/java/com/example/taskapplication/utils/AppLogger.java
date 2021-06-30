@@ -6,7 +6,6 @@ import timber.log.Timber;
 public final class AppLogger {
 
     private AppLogger() {
-        // This utility class is not publicly instantiable
     }
 
     public static void d(String s, Object... objects) {
