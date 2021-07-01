@@ -2,9 +2,9 @@ package com.example.taskapplication.di.modules;
 
 import androidx.core.util.Supplier;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.taskapplication.ui.activities.BaseActivity;
 import com.example.taskapplication.ui.adapters.FeedPagerAdapter;
+import com.example.taskapplication.utils.SchedulerProvider;
 import com.example.taskapplication.viewModels.MainViewModel;
 import com.example.taskapplication.viewModels.ViewModelProviderFactory;
 
@@ -24,8 +24,8 @@ public class ActivityModule {
     }
 
     @Provides
-    MainViewModel provideMainViewModel() {
-        Supplier<MainViewModel> supplier = () -> new MainViewModel();
+    MainViewModel provideMainViewModel(SchedulerProvider schedulerProvider) {
+        Supplier<MainViewModel> supplier = () -> new MainViewModel(schedulerProvider);
         ViewModelProviderFactory<MainViewModel> factory = new ViewModelProviderFactory<>(MainViewModel.class, supplier);
         return new ViewModelProvider(activity, factory).get(MainViewModel.class);
     }

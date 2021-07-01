@@ -3,6 +3,8 @@ package com.example.taskapplication.di.components;
 import android.app.Application;
 import com.example.taskapplication.TaskApplication;
 import com.example.taskapplication.di.modules.AppModule;
+import com.example.taskapplication.utils.SchedulerProvider;
+
 import javax.inject.Singleton;
 import dagger.BindsInstance;
 import dagger.Component;
@@ -12,6 +14,8 @@ import dagger.Component;
 public interface AppComponent {
 
     void inject(TaskApplication app);
+
+    SchedulerProvider getSchedulerProvider();
 
     @Component.Builder
     interface Builder {

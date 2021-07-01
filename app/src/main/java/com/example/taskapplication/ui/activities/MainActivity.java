@@ -12,8 +12,8 @@ import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 
-   /* @Inject
-    FeedPagerAdapter mPagerAdapter;*/
+    @Inject
+    FeedPagerAdapter mPagerAdapter;
     private ActivityMainBinding binding;
     @Override
     public int getBindingVariable() {
@@ -38,7 +38,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     }
 
     private void setUp() {
-       /* setSupportActionBar(binding.toolbar);
+        setSupportActionBar(binding.toolbar);
         mPagerAdapter.setCount(2);
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Channels"));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Socials"));
@@ -59,6 +59,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
             public void onTabUnselected(TabLayout.Tab tab) {
 
             }
-        });*/
+        });
     }
 }

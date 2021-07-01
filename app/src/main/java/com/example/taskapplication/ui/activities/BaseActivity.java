@@ -22,6 +22,7 @@ import com.example.taskapplication.utils.CommonUtils;
 import com.example.taskapplication.utils.NetworkUtils;
 import com.example.taskapplication.viewModels.BaseViewModel;
 import javax.inject.Inject;
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseViewModel> extends AppCompatActivity
         implements BaseFragment.Callback{
@@ -44,6 +45,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
 
     @Override
     protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     @Override
