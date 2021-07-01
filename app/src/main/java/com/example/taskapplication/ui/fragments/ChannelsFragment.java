@@ -10,12 +10,21 @@ import com.example.taskapplication.BR;
 import com.example.taskapplication.R;
 import com.example.taskapplication.databinding.FragmentChannelsBinding;
 import com.example.taskapplication.di.components.FragmentComponent;
+import com.example.taskapplication.network.models.ChannelModel;
+import com.example.taskapplication.ui.adapters.ChannelsAdapter;
 import com.example.taskapplication.viewModels.ChannelsViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 public class ChannelsFragment extends BaseFragment<FragmentChannelsBinding, ChannelsViewModel> {
+
     FragmentChannelsBinding mFragmentChannelBinding;
 
+    @Inject
+    ChannelsAdapter adapter;
     @Inject
     LinearLayoutManager mLayoutManager;
 
@@ -55,9 +64,18 @@ public class ChannelsFragment extends BaseFragment<FragmentChannelsBinding, Chan
 
 
     private void setUp() {
+        List<ChannelModel> channelListLiveData;
+        channelListLiveData = new ArrayList<>();
+        channelListLiveData.add(new ChannelModel("Test","","https://i.imgur.com/3McFm3K_d.webp?maxwidth=640&shape=thumb&fidelity=medium","Test"));
+        channelListLiveData.add(new ChannelModel("Test","","https://i.imgur.com/3McFm3K_d.webp?maxwidth=640&shape=thumb&fidelity=medium","Test"));
+        channelListLiveData.add(new ChannelModel("Test","","https://i.imgur.com/3McFm3K_d.webp?maxwidth=640&shape=thumb&fidelity=medium","Test"));
+        channelListLiveData.add(new ChannelModel("Test","","https://i.imgur.com/3McFm3K_d.webp?maxwidth=640&shape=thumb&fidelity=medium","Test"));
+        channelListLiveData.add(new ChannelModel("Test","","https://i.imgur.com/3McFm3K_d.webp?maxwidth=640&shape=thumb&fidelity=medium","Test"));
+        channelListLiveData.add(new ChannelModel("Test","","https://i.imgur.com/3McFm3K_d.webp?maxwidth=640&shape=thumb&fidelity=medium","Test"));
+        adapter.addItems(channelListLiveData);
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mFragmentChannelBinding.channelsRecyclerView.setLayoutManager(mLayoutManager);
         mFragmentChannelBinding.channelsRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        // mFragmentSocialBinding.socialRecyclerView.setAdapter(mBlogAdapter);
+        mFragmentChannelBinding.channelsRecyclerView.setAdapter(adapter);
     }
 }

@@ -27,6 +27,7 @@
                 android:id="@+id/channelsRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:adapter="@{viewModel.channelListLiveData}"
                 tools:listitem="@layout/item_channels_view" />
 
         </LinearLayout>

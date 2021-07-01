@@ -1,8 +1,8 @@
 package com.example.taskapplication.utils;
 
 import com.example.taskapplication.BuildConfig;
-
 import timber.log.Timber;
+
 public final class AppLogger {
 
     private AppLogger() {

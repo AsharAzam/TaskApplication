@@ -3,11 +3,16 @@ package com.example.taskapplication.di.modules;
 import androidx.core.util.Supplier;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.example.taskapplication.ui.adapters.ChannelsAdapter;
 import com.example.taskapplication.ui.fragments.BaseFragment;
 import com.example.taskapplication.utils.SchedulerProvider;
 import com.example.taskapplication.viewModels.ChannelsViewModel;
 import com.example.taskapplication.viewModels.SocialViewModel;
 import com.example.taskapplication.viewModels.ViewModelProviderFactory;
+
+import java.util.ArrayList;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -35,4 +40,10 @@ public class FragmentModule {
         ViewModelProviderFactory<ChannelsViewModel> factory = new ViewModelProviderFactory<>(ChannelsViewModel.class, supplier);
         return new ViewModelProvider(fragment, factory).get(ChannelsViewModel.class);
     }
+
+    @Provides
+    ChannelsAdapter provideChannelAdapter() {
+        return new ChannelsAdapter(new ArrayList<>());
+    }
+
 }

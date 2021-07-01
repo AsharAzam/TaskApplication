@@ -40,6 +40,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     private void setUp() {
         setSupportActionBar(binding.toolbar);
         mPagerAdapter.setCount(2);
+        binding.feedViewPager.setAdapter(mPagerAdapter);
+
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Channels"));
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Socials"));
         binding.feedViewPager.setOffscreenPageLimit(binding.tabLayout.getTabCount());
