@@ -2,6 +2,7 @@ package com.example.taskapplication.di.components;
 
 import android.app.Application;
 import com.example.taskapplication.TaskApplication;
+import com.example.taskapplication.data.network.DataManager;
 import com.example.taskapplication.di.modules.AppModule;
 import com.example.taskapplication.utils.SchedulerProvider;
 
@@ -16,6 +17,7 @@ public interface AppComponent {
     void inject(TaskApplication app);
 
     SchedulerProvider getSchedulerProvider();
+    DataManager getDataManager();
 
     @Component.Builder
     interface Builder {

@@ -1,9 +1,9 @@
-package com.example.taskapplication.network.models;
+package com.example.taskapplication.data.network.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SocialModel {
+public class ChannelModel {
     @Expose
     @SerializedName("name")
     private String name;
@@ -19,6 +19,13 @@ public class SocialModel {
     @Expose
     @SerializedName("package_name_android")
     private String packageName;
+
+    public ChannelModel(String name, String url, String coverImgUrl, String packageName) {
+        this.name = name;
+        this.url = url;
+        this.coverImgUrl = coverImgUrl;
+        this.packageName = packageName;
+    }
 
     public String getName() {
         return name;

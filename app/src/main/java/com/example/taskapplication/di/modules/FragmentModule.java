@@ -4,6 +4,7 @@ import androidx.core.util.Supplier;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.taskapplication.data.network.DataManager;
 import com.example.taskapplication.ui.adapters.ChannelsAdapter;
 import com.example.taskapplication.ui.fragments.BaseFragment;
 import com.example.taskapplication.utils.SchedulerProvider;
@@ -28,15 +29,15 @@ public class FragmentModule {
     }
 
     @Provides
-    SocialViewModel provideSocialViewModel(SchedulerProvider schedulerProvider) {
-        Supplier<SocialViewModel> supplier = () -> new SocialViewModel(schedulerProvider);
+    SocialViewModel provideSocialViewModel(DataManager manager,SchedulerProvider schedulerProvider) {
+        Supplier<SocialViewModel> supplier = () -> new SocialViewModel(manager,schedulerProvider);
         ViewModelProviderFactory<SocialViewModel> factory = new ViewModelProviderFactory<>(SocialViewModel.class, supplier);
         return new ViewModelProvider(fragment, factory).get(SocialViewModel.class);
     }
 
     @Provides
-    ChannelsViewModel provideChannelViewModel(SchedulerProvider schedulerProvider) {
-        Supplier<ChannelsViewModel> supplier = () -> new ChannelsViewModel(schedulerProvider);
+    ChannelsViewModel provideChannelViewModel(DataManager manager,SchedulerProvider schedulerProvider) {
+        Supplier<ChannelsViewModel> supplier = () -> new ChannelsViewModel(manager,schedulerProvider);
         ViewModelProviderFactory<ChannelsViewModel> factory = new ViewModelProviderFactory<>(ChannelsViewModel.class, supplier);
         return new ViewModelProvider(fragment, factory).get(ChannelsViewModel.class);
     }

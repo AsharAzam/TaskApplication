@@ -3,7 +3,6 @@ package com.example.taskapplication.ui.adapters;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-
 import com.example.taskapplication.ui.fragments.ChannelsFragment;
 import com.example.taskapplication.ui.fragments.SocialFragment;
 
