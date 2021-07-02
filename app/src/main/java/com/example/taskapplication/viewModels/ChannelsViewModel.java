@@ -3,20 +3,18 @@ package com.example.taskapplication.viewModels;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.example.taskapplication.data.network.DataManager;
-import com.example.taskapplication.data.network.models.GeneralModel;
+import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.data.network.models.SocialModel;
 import com.example.taskapplication.utils.SchedulerProvider;
 import java.util.List;
 
 public class ChannelsViewModel extends BaseViewModel {
 
-    private final MutableLiveData<List<GeneralModel>> channelListLiveData;
-    private final MutableLiveData<List<GeneralModel>> socialListLiveData;
+    private final MutableLiveData<List<ChannelModel>> channelListLiveData;
 
     public ChannelsViewModel(DataManager manager,SchedulerProvider schedulerProvider) {
         super(manager,schedulerProvider);
         channelListLiveData = new MutableLiveData<>();
-        socialListLiveData = new MutableLiveData<>();
         fetchData();
     }
 
@@ -29,7 +27,7 @@ public class ChannelsViewModel extends BaseViewModel {
                 .subscribe(apiResponse -> {
                     if (apiResponse.getHeader().getCode()==1) {
                         channelListLiveData.setValue(apiResponse.getBody().getChannels());
-                        socialListLiveData.setValue(apiResponse.getBody().getSocials());
+                        setSocialListData(apiResponse.getBody().getChannels());
                     }
                     setIsLoading(false);
                 }, throwable -> {
@@ -37,11 +35,8 @@ public class ChannelsViewModel extends BaseViewModel {
                 }));
     }
 
-    public LiveData<List<GeneralModel>> getChannelListLiveData() {
+    public LiveData<List<ChannelModel>> getChannelListLiveData() {
         return channelListLiveData;
     }
 
-    public LiveData<List<GeneralModel>> getSocialListLiveData() {
-        return socialListLiveData;
-    }
 }

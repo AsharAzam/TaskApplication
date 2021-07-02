@@ -1,11 +1,9 @@
 package com.example.taskapplication.viewModels;
 
 import androidx.databinding.ObservableField;
+import com.example.taskapplication.data.network.models.SocialModel;
 
-import com.example.taskapplication.data.network.models.ChannelModel;
-
-public class ChannelItemsViewModel {
-
+public class SocialItemsViewModel {
     public final ObservableField<String> name;
 
     public final ObservableField<String> url;
@@ -14,11 +12,11 @@ public class ChannelItemsViewModel {
 
     public final ObservableField<String> packageName;
 
-    public final ChannelItemViewModelListener mListener;
+    public final SocialItemsViewModel.SocialItemViewModelListener mListener;
 
-    private final ChannelModel mModel;
+    private final SocialModel mModel;
 
-    public ChannelItemsViewModel(ChannelModel model, ChannelItemViewModelListener listener) {
+    public SocialItemsViewModel(SocialModel model, SocialItemsViewModel.SocialItemViewModelListener listener) {
         this.mModel = model;
         this.mListener = listener;
         name = new ObservableField<>(mModel.getName());
@@ -31,8 +29,8 @@ public class ChannelItemsViewModel {
         mListener.onItemClick(mModel);
     }
 
-    public interface ChannelItemViewModelListener {
+    public interface SocialItemViewModelListener {
 
-        void onItemClick(ChannelModel model);
+        void onItemClick(SocialModel model);
     }
 }

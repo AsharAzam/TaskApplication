@@ -4,8 +4,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.taskapplication.data.network.models.GeneralModel;
+import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.databinding.ItemChannelsViewBinding;
 import com.example.taskapplication.databinding.ItemEmptyLayoutBinding;
 import com.example.taskapplication.ui.viewHolders.BaseViewHolder;
@@ -16,12 +15,12 @@ import java.util.List;
 
 public class ChannelsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
-    private List<GeneralModel> mChannelResponseList;
+    private List<ChannelModel> mChannelResponseList;
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;
 
 
-    public ChannelsAdapter(List<GeneralModel> channelResponseList) {
+    public ChannelsAdapter(List<ChannelModel> channelResponseList) {
         this.mChannelResponseList = channelResponseList;
     }
 
@@ -64,8 +63,8 @@ public class ChannelsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         }
     }
 
-    public void addItems(List<GeneralModel> blogList) {
-        mChannelResponseList.addAll(blogList);
+    public void addItems(List<ChannelModel> channelList) {
+        mChannelResponseList.addAll(channelList);
         notifyDataSetChanged();
     }
 
@@ -86,14 +85,14 @@ public class ChannelsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         @Override
         public void onBind(int position) {
-            final GeneralModel data = mChannelResponseList.get(position);
+            final ChannelModel data = mChannelResponseList.get(position);
             channelItemsViewModel = new ChannelItemsViewModel(data, this);
             mBinding.setViewModel(channelItemsViewModel);
             mBinding.executePendingBindings();
         }
 
         @Override
-        public void onItemClick(GeneralModel model) {
+        public void onItemClick(ChannelModel model) {
             if (model != null) {
                 try {
                     Intent intent = new Intent();

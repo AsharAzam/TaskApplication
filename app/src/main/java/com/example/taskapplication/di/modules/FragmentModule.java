@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.taskapplication.data.network.DataManager;
 import com.example.taskapplication.ui.adapters.ChannelsAdapter;
+import com.example.taskapplication.ui.adapters.SocialAdapter;
 import com.example.taskapplication.ui.fragments.BaseFragment;
 import com.example.taskapplication.utils.SchedulerProvider;
 import com.example.taskapplication.viewModels.ChannelsViewModel;
@@ -45,6 +46,11 @@ public class FragmentModule {
     @Provides
     ChannelsAdapter provideChannelAdapter() {
         return new ChannelsAdapter(new ArrayList<>());
+    }
+
+    @Provides
+    SocialAdapter provideSocialAdapter() {
+        return new SocialAdapter(new ArrayList<>());
     }
 
 }

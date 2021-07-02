@@ -12,7 +12,6 @@ import com.example.taskapplication.databinding.FragmentChannelsBinding;
 import com.example.taskapplication.di.components.FragmentComponent;
 import com.example.taskapplication.ui.adapters.ChannelsAdapter;
 import com.example.taskapplication.viewModels.ChannelsViewModel;
-
 import javax.inject.Inject;
 
 public class ChannelsFragment extends BaseFragment<FragmentChannelsBinding, ChannelsViewModel> {
@@ -45,7 +44,7 @@ public class ChannelsFragment extends BaseFragment<FragmentChannelsBinding, Chan
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        channelsViewModel.fetchData();
+
     }
 
     @Override

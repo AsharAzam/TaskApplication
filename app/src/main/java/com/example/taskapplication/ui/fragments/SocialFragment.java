@@ -11,17 +11,21 @@ import com.example.taskapplication.R;
 import com.example.taskapplication.databinding.FragmentSocialBinding;
 import com.example.taskapplication.di.components.FragmentComponent;
 import com.example.taskapplication.ui.adapters.ChannelsAdapter;
+import com.example.taskapplication.ui.adapters.SocialAdapter;
+import com.example.taskapplication.viewModels.BaseViewModel;
 import com.example.taskapplication.viewModels.ChannelsViewModel;
+import com.example.taskapplication.viewModels.SocialViewModel;
+
 import javax.inject.Inject;
 
-public class SocialFragment extends BaseFragment<FragmentSocialBinding, ChannelsViewModel> {
+public class SocialFragment extends BaseFragment<FragmentSocialBinding, BaseViewModel> {
 
     FragmentSocialBinding mFragmentSocialBinding;
-
     @Inject
     LinearLayoutManager mLayoutManager;
     @Inject
-    ChannelsAdapter adapter;
+    SocialAdapter adapter;
+
 
 
     public static SocialFragment newInstance() {
