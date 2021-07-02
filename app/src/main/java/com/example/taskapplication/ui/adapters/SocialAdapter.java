@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.taskapplication.data.network.models.GeneralModel;
+import com.example.taskapplication.data.network.models.SocialModel;
 import com.example.taskapplication.databinding.ItemChannelsViewBinding;
 import com.example.taskapplication.databinding.ItemEmptyLayoutBinding;
 import com.example.taskapplication.ui.viewHolders.BaseViewHolder;
@@ -14,21 +14,21 @@ import com.example.taskapplication.viewModels.ChannelItemsViewModel;
 import com.example.taskapplication.viewModels.EmptyItemViewModel;
 import java.util.List;
 
-public class ChannelsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class SocialAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
-    private List<GeneralModel> mChannelResponseList;
+    private List<GeneralModel> mSocialResponseList;
     public static final int VIEW_TYPE_EMPTY = 0;
     public static final int VIEW_TYPE_NORMAL = 1;
 
 
-    public ChannelsAdapter(List<GeneralModel> channelResponseList) {
-        this.mChannelResponseList = channelResponseList;
+    public SocialAdapter(List<GeneralModel> channelResponseList) {
+        this.mSocialResponseList = channelResponseList;
     }
 
     @Override
     public int getItemCount() {
-        if (mChannelResponseList != null && mChannelResponseList.size() > 0) {
-            return mChannelResponseList.size();
+        if (mSocialResponseList != null && mSocialResponseList.size() > 0) {
+            return mSocialResponseList.size();
         } else {
             return 1;
         }
@@ -36,7 +36,7 @@ public class ChannelsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        if (mChannelResponseList != null && !mChannelResponseList.isEmpty()) {
+        if (mSocialResponseList != null && !mSocialResponseList.isEmpty()) {
             return VIEW_TYPE_NORMAL;
         } else {
             return VIEW_TYPE_EMPTY;
@@ -54,39 +54,39 @@ public class ChannelsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         switch (viewType) {
             case VIEW_TYPE_NORMAL:
                 ItemChannelsViewBinding viewBinding = ItemChannelsViewBinding.inflate(LayoutInflater.from(parent.getContext()),
-                    parent, false);
-            return new ChannelViewHolder(viewBinding);
+                        parent, false);
+                return new SocialAdapter.SocialViewHolder(viewBinding);
             case VIEW_TYPE_EMPTY:
             default:
                 ItemEmptyLayoutBinding emptyViewBinding = ItemEmptyLayoutBinding.inflate(LayoutInflater.from(parent.getContext()),
                         parent, false);
-                return new EmptyViewHolder(emptyViewBinding);
+                return new SocialAdapter.EmptyViewHolder(emptyViewBinding);
         }
     }
 
-    public void addItems(List<GeneralModel> blogList) {
-        mChannelResponseList.addAll(blogList);
+    public void addItems(List<GeneralModel> socialModelsList) {
+        mSocialResponseList.addAll(socialModelsList);
         notifyDataSetChanged();
     }
 
     public void clearItems() {
-        mChannelResponseList.clear();
+        mSocialResponseList.clear();
     }
 
-    public class ChannelViewHolder extends BaseViewHolder implements ChannelItemsViewModel.ChannelItemViewModelListener {
+    public class SocialViewHolder extends BaseViewHolder implements ChannelItemsViewModel.ChannelItemViewModelListener {
 
         private ItemChannelsViewBinding mBinding;
 
         private ChannelItemsViewModel channelItemsViewModel;
 
-        public ChannelViewHolder(ItemChannelsViewBinding binding) {
+        public SocialViewHolder(ItemChannelsViewBinding binding) {
             super(binding.getRoot());
             this.mBinding = binding;
         }
 
         @Override
         public void onBind(int position) {
-            final GeneralModel data = mChannelResponseList.get(position);
+            final GeneralModel data = mSocialResponseList.get(position);
             channelItemsViewModel = new ChannelItemsViewModel(data, this);
             mBinding.setViewModel(channelItemsViewModel);
             mBinding.executePendingBindings();
@@ -122,5 +122,4 @@ public class ChannelsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             mBinding.setViewModel(emptyItemViewModel);
         }
     }
-
 }

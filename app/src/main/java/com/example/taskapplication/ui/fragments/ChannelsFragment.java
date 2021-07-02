@@ -10,12 +10,8 @@ import com.example.taskapplication.BR;
 import com.example.taskapplication.R;
 import com.example.taskapplication.databinding.FragmentChannelsBinding;
 import com.example.taskapplication.di.components.FragmentComponent;
-import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.ui.adapters.ChannelsAdapter;
 import com.example.taskapplication.viewModels.ChannelsViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 

@@ -1,7 +1,7 @@
 package com.example.taskapplication.viewModels;
 
 import androidx.databinding.ObservableField;
-import com.example.taskapplication.data.network.models.ChannelModel;
+import com.example.taskapplication.data.network.models.GeneralModel;
 
 public class ChannelItemsViewModel {
 
@@ -15,9 +15,9 @@ public class ChannelItemsViewModel {
 
     public final ChannelItemViewModelListener mListener;
 
-    private final ChannelModel mModel;
+    private final GeneralModel mModel;
 
-    public ChannelItemsViewModel(ChannelModel model, ChannelItemViewModelListener listener) {
+    public ChannelItemsViewModel(GeneralModel model, ChannelItemViewModelListener listener) {
         this.mModel = model;
         this.mListener = listener;
         name = new ObservableField<>(mModel.getName());
@@ -32,6 +32,6 @@ public class ChannelItemsViewModel {
 
     public interface ChannelItemViewModelListener {
 
-        void onItemClick(ChannelModel model);
+        void onItemClick(GeneralModel model);
     }
 }

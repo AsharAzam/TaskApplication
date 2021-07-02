@@ -8,24 +8,24 @@ import java.util.List;
 public class Body {
     @Expose
     @SerializedName("channels")
-    private List<ChannelModel> channels = null;
+    private List<GeneralModel> channels = null;
     @Expose
     @SerializedName("socials")
-    private List<SocialModel> socials = null;
+    private List<GeneralModel> socials = null;
 
-    public List<ChannelModel> getChannels() {
+    public List<GeneralModel> getChannels() {
         return channels;
     }
 
-    public void setChannels(List<ChannelModel> channels) {
+    public void setChannels(List<GeneralModel> channels) {
         this.channels = channels;
     }
 
-    public List<SocialModel> getSocials() {
+    public List<GeneralModel> getSocials() {
         return socials;
     }
 
-    public void setSocials(List<SocialModel> socials) {
+    public void setSocials(List<GeneralModel> socials) {
         this.socials = socials;
     }
 }

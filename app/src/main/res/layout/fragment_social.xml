@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.taskapplication.viewModels.SocialViewModel" />
+            type="com.example.taskapplication.viewModels.ChannelsViewModel" />
 
     </data>
 
@@ -27,6 +27,7 @@
                 android:id="@+id/socialRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:adapter="@{viewModel.socialListLiveData}"
                 tools:listitem="@layout/item_social_view" />
 
         </LinearLayout>

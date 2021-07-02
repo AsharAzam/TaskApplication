@@ -10,15 +10,19 @@ import com.example.taskapplication.BR;
 import com.example.taskapplication.R;
 import com.example.taskapplication.databinding.FragmentSocialBinding;
 import com.example.taskapplication.di.components.FragmentComponent;
-import com.example.taskapplication.viewModels.SocialViewModel;
+import com.example.taskapplication.ui.adapters.ChannelsAdapter;
+import com.example.taskapplication.viewModels.ChannelsViewModel;
 import javax.inject.Inject;
 
-public class SocialFragment extends BaseFragment<FragmentSocialBinding, SocialViewModel> {
+public class SocialFragment extends BaseFragment<FragmentSocialBinding, ChannelsViewModel> {
 
     FragmentSocialBinding mFragmentSocialBinding;
 
     @Inject
     LinearLayoutManager mLayoutManager;
+    @Inject
+    ChannelsAdapter adapter;
+
 
     public static SocialFragment newInstance() {
         Bundle args = new Bundle();
@@ -59,6 +63,6 @@ public class SocialFragment extends BaseFragment<FragmentSocialBinding, SocialVi
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mFragmentSocialBinding.socialRecyclerView.setLayoutManager(mLayoutManager);
         mFragmentSocialBinding.socialRecyclerView.setItemAnimator(new DefaultItemAnimator());
-       // mFragmentSocialBinding.socialRecyclerView.setAdapter(mBlogAdapter);
+        mFragmentSocialBinding.socialRecyclerView.setAdapter(adapter);
     }
 }
