@@ -18,7 +18,7 @@ import com.example.taskapplication.viewModels.SocialViewModel;
 
 import javax.inject.Inject;
 
-public class SocialFragment extends BaseFragment<FragmentSocialBinding, BaseViewModel> {
+public class SocialFragment extends BaseFragment<FragmentSocialBinding, SocialViewModel> {
 
     FragmentSocialBinding mFragmentSocialBinding;
     @Inject

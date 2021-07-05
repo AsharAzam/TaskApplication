@@ -1,9 +1,16 @@
 package com.example.taskapplication.data.network.models;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+@Entity(tableName = "social" )
 public class SocialModel {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     @Expose
     @SerializedName("name")
     private String name;
@@ -19,6 +26,14 @@ public class SocialModel {
     @Expose
     @SerializedName("package_name_android")
     private String packageName;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

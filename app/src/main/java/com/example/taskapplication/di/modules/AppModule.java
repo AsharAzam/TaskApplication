@@ -2,11 +2,18 @@ package com.example.taskapplication.di.modules;
 
 import android.app.Application;
 import android.content.Context;
+
+import androidx.room.Room;
+
 import com.example.taskapplication.R;
+import com.example.taskapplication.data.local.db.AppDatabase;
+import com.example.taskapplication.data.local.db.AppDbHelper;
+import com.example.taskapplication.data.local.db.DbHelper;
 import com.example.taskapplication.data.network.ApiHelper;
 import com.example.taskapplication.data.network.AppApiHelper;
 import com.example.taskapplication.data.network.AppDataManager;
 import com.example.taskapplication.data.network.DataManager;
+import com.example.taskapplication.di.DatabaseInfo;
 import com.example.taskapplication.utils.AppSchedulerProvider;
 import com.example.taskapplication.utils.SchedulerProvider;
 import com.google.gson.Gson;
@@ -53,4 +60,18 @@ public class AppModule {
     Gson provideGson() {
         return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
     }
+
+    @Provides
+    @Singleton
+    AppDatabase provideAppDatabase(@DatabaseInfo String dbName, Context context) {
+        return Room.databaseBuilder(context, AppDatabase.class, dbName).fallbackToDestructiveMigration()
+                .build();
+    }
+    @Provides
+    @Singleton
+    DbHelper provideDbHelper(AppDbHelper appDbHelper) {
+        return appDbHelper;
+    }
+
+
 }
