@@ -4,6 +4,8 @@ import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.taskapplication.data.local.db.AppDbHelper;
 import com.example.taskapplication.data.network.DataManager;
 import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.utils.SchedulerProvider;
@@ -21,7 +23,7 @@ public class BaseViewModel<N> extends ViewModel {
     private WeakReference<N> mNavigator;
     private final MutableLiveData<List<ChannelModel>> socialListLiveData;
 
-    public BaseViewModel(DataManager manager,SchedulerProvider schedulerProvider) {
+    public BaseViewModel(DataManager manager, SchedulerProvider schedulerProvider) {
         this.mDataManager=manager;
         this.mSchedulerProvider = schedulerProvider;
         this.mCompositeDisposable = new CompositeDisposable();

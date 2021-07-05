@@ -26,6 +26,7 @@ import io.github.inflationx.calligraphy3.CalligraphyConfig;
 
 @Module
 public class AppModule {
+
     @Provides
     @Singleton
     Context provideContext(Application application) {
@@ -45,16 +46,20 @@ public class AppModule {
                 .setFontAttrId(R.attr.fontPath)
                 .build();
     }
+
     @Provides
     @Singleton
     ApiHelper provideApiHelper(AppApiHelper appApiHelper) {
         return appApiHelper;
     }
+
+
     @Provides
     @Singleton
     DataManager provideDataManager(AppDataManager appDataManager) {
         return appDataManager;
     }
+
     @Provides
     @Singleton
     Gson provideGson() {
@@ -71,6 +76,12 @@ public class AppModule {
     @Singleton
     DbHelper provideDbHelper(AppDbHelper appDbHelper) {
         return appDbHelper;
+    }
+
+    @Provides
+    @DatabaseInfo
+    String provideDatabaseName() {
+        return "taskapplication.db";
     }
 
 

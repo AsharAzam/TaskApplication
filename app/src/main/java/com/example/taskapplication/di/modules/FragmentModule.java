@@ -4,6 +4,8 @@ import androidx.core.util.Supplier;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.taskapplication.data.local.db.AppDbHelper;
+import com.example.taskapplication.data.local.db.DbHelper;
 import com.example.taskapplication.data.network.DataManager;
 import com.example.taskapplication.ui.adapters.ChannelsAdapter;
 import com.example.taskapplication.ui.adapters.SocialAdapter;
@@ -14,6 +16,8 @@ import com.example.taskapplication.viewModels.SocialViewModel;
 import com.example.taskapplication.viewModels.ViewModelProviderFactory;
 
 import java.util.ArrayList;
+
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -52,5 +56,7 @@ public class FragmentModule {
     SocialAdapter provideSocialAdapter() {
         return new SocialAdapter(new ArrayList<>());
     }
+
+
 
 }

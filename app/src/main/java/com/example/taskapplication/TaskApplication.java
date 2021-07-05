@@ -5,6 +5,8 @@ import com.example.taskapplication.di.components.AppComponent;
 import com.example.taskapplication.di.components.DaggerAppComponent;
 import com.example.taskapplication.utils.AppLogger;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.stetho.Stetho;
+
 import javax.inject.Inject;
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 
@@ -16,6 +18,7 @@ public class TaskApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Fresco.initialize(this);
+        Stetho.initializeWithDefaults(this);
         appComponent = DaggerAppComponent.builder()
                 .application(this)
                 .build();

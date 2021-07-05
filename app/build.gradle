@@ -71,5 +71,7 @@ dependencies {
 
     //network
     implementation "com.amitshekhar.android:rx2-android-networking:1.0.1"
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+
 
 }
