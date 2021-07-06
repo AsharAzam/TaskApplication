@@ -2,15 +2,12 @@ package com.example.taskapplication.di.modules;
 
 import androidx.core.util.Supplier;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.example.taskapplication.data.network.DataManager;
 import com.example.taskapplication.ui.activities.BaseActivity;
 import com.example.taskapplication.ui.adapters.FeedPagerAdapter;
 import com.example.taskapplication.utils.SchedulerProvider;
-import com.example.taskapplication.viewModels.ChannelsViewModel;
 import com.example.taskapplication.viewModels.MainViewModel;
 import com.example.taskapplication.viewModels.ViewModelProviderFactory;
-
 import dagger.Module;
 import dagger.Provides;
 

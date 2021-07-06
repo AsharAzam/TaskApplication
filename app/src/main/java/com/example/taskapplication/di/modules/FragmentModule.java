@@ -3,22 +3,15 @@ package com.example.taskapplication.di.modules;
 import androidx.core.util.Supplier;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-import com.example.taskapplication.data.local.db.AppDbHelper;
-import com.example.taskapplication.data.local.db.DbHelper;
 import com.example.taskapplication.data.network.DataManager;
 import com.example.taskapplication.ui.adapters.ChannelsAdapter;
 import com.example.taskapplication.ui.adapters.SocialAdapter;
 import com.example.taskapplication.ui.fragments.BaseFragment;
 import com.example.taskapplication.utils.SchedulerProvider;
-import com.example.taskapplication.viewModels.ChannelsViewModel;
+import com.example.taskapplication.viewModels.ApiViewModel;
 import com.example.taskapplication.viewModels.SocialViewModel;
 import com.example.taskapplication.viewModels.ViewModelProviderFactory;
-
 import java.util.ArrayList;
-
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 
@@ -41,10 +34,10 @@ public class FragmentModule {
     }
 
     @Provides
-    ChannelsViewModel provideChannelViewModel(DataManager manager,SchedulerProvider schedulerProvider) {
-        Supplier<ChannelsViewModel> supplier = () -> new ChannelsViewModel(manager,schedulerProvider);
-        ViewModelProviderFactory<ChannelsViewModel> factory = new ViewModelProviderFactory<>(ChannelsViewModel.class, supplier);
-        return new ViewModelProvider(fragment, factory).get(ChannelsViewModel.class);
+    ApiViewModel provideChannelViewModel(DataManager manager, SchedulerProvider schedulerProvider) {
+        Supplier<ApiViewModel> supplier = () -> new ApiViewModel(manager,schedulerProvider);
+        ViewModelProviderFactory<ApiViewModel> factory = new ViewModelProviderFactory<>(ApiViewModel.class, supplier);
+        return new ViewModelProvider(fragment, factory).get(ApiViewModel.class);
     }
 
     @Provides

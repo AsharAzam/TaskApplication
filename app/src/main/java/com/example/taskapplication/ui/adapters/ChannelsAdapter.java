@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.taskapplication.TaskApplication;
 import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.databinding.ItemChannelsViewBinding;

@@ -1,18 +1,14 @@
 package com.example.taskapplication.data.network;
 
 import android.content.Context;
-
 import com.example.taskapplication.data.local.db.DbHelper;
 import com.example.taskapplication.data.network.models.ApiResponse;
 import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.data.network.models.SocialModel;
 import com.google.gson.Gson;
-
 import java.util.List;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
@@ -42,7 +38,7 @@ public class AppDataManager implements DataManager{
     }
 
     @Override
-    public Observable<List<ChannelModel>> getChannelData() {
+    public Single<List<ChannelModel>> getChannelData() {
         return mDbHelper.getAllChannels();
     }
 
@@ -51,18 +47,8 @@ public class AppDataManager implements DataManager{
         return mDbHelper.getAllSocials();
     }
 
-   /* @Override
-    public Observable<Boolean> saveChannelData(List<ChannelModel> list) {
-        return mDbHelper.saveChannelList(list);
-    }
-
     @Override
-    public Observable<Boolean> saveSocialData(List<SocialModel> list) {
-        return mDbHelper.saveSocialList(list);
-    }*/
-
-    @Override
-    public Observable<List<ChannelModel>> getAllChannels() {
+    public Single<List<ChannelModel>> getAllChannels() {
         return mDbHelper.getAllChannels();
     }
 

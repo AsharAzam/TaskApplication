@@ -1,15 +1,11 @@
 package com.example.taskapplication.viewModels;
 
 import android.util.Log;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import com.example.taskapplication.data.network.DataManager;
-import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.data.network.models.SocialModel;
 import com.example.taskapplication.utils.SchedulerProvider;
-
 import java.util.List;
 
 

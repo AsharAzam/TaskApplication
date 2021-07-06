@@ -11,10 +11,10 @@ import com.example.taskapplication.R;
 import com.example.taskapplication.databinding.FragmentChannelsBinding;
 import com.example.taskapplication.di.components.FragmentComponent;
 import com.example.taskapplication.ui.adapters.ChannelsAdapter;
-import com.example.taskapplication.viewModels.ChannelsViewModel;
+import com.example.taskapplication.viewModels.ApiViewModel;
 import javax.inject.Inject;
 
-public class ChannelsFragment extends BaseFragment<FragmentChannelsBinding, ChannelsViewModel> {
+public class ChannelsFragment extends BaseFragment<FragmentChannelsBinding, ApiViewModel> {
 
     FragmentChannelsBinding mFragmentChannelBinding;
     @Inject
@@ -22,7 +22,7 @@ public class ChannelsFragment extends BaseFragment<FragmentChannelsBinding, Chan
     @Inject
     LinearLayoutManager mLayoutManager;
     @Inject
-    ChannelsViewModel channelsViewModel;
+    ApiViewModel channelsViewModel;
 
     public static ChannelsFragment newInstance() {
         Bundle args = new Bundle();

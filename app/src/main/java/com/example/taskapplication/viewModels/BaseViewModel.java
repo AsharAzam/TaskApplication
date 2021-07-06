@@ -1,19 +1,10 @@
 package com.example.taskapplication.viewModels;
 
 import androidx.databinding.ObservableBoolean;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-
-import com.example.taskapplication.data.local.db.AppDbHelper;
 import com.example.taskapplication.data.network.DataManager;
-import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.utils.SchedulerProvider;
-import java.lang.ref.WeakReference;
-import java.util.List;
-
 import javax.inject.Inject;
-
 import io.reactivex.disposables.CompositeDisposable;
 
 

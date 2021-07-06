@@ -2,12 +2,10 @@ package com.example.taskapplication.utils;
 
 import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.data.network.models.SocialModel;
 import com.example.taskapplication.ui.adapters.ChannelsAdapter;
 import com.example.taskapplication.ui.adapters.SocialAdapter;
-
 import java.util.List;
 
 public class BindingUtils {

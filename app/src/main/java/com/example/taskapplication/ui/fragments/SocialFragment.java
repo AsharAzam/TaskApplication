@@ -1,7 +1,6 @@
 package com.example.taskapplication.ui.fragments;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,14 +9,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.taskapplication.BR;
 import com.example.taskapplication.R;
-import com.example.taskapplication.data.network.models.SocialModel;
 import com.example.taskapplication.databinding.FragmentSocialBinding;
 import com.example.taskapplication.di.components.FragmentComponent;
 import com.example.taskapplication.ui.adapters.SocialAdapter;
-import com.example.taskapplication.viewModels.ChannelsViewModel;
+import com.example.taskapplication.viewModels.ApiViewModel;
 import com.example.taskapplication.viewModels.SocialViewModel;
-
-
 import javax.inject.Inject;
 
 public class SocialFragment extends BaseFragment<FragmentSocialBinding, SocialViewModel>  {
@@ -28,7 +24,7 @@ public class SocialFragment extends BaseFragment<FragmentSocialBinding, SocialVi
     @Inject
     SocialAdapter adapter;
     @Inject
-    ChannelsViewModel channelsViewModel;
+    ApiViewModel channelsViewModel;
     @Inject
     SocialViewModel socialViewModel;
 

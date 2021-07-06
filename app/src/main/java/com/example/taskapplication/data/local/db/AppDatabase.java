@@ -2,7 +2,6 @@ package com.example.taskapplication.data.local.db;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
-
 import com.example.taskapplication.data.local.db.dao.ChannelsDao;
 import com.example.taskapplication.data.local.db.dao.SocialsDao;
 import com.example.taskapplication.data.network.models.ChannelModel;

@@ -5,7 +5,6 @@ import com.example.taskapplication.TaskApplication;
 import com.example.taskapplication.data.network.DataManager;
 import com.example.taskapplication.di.modules.AppModule;
 import com.example.taskapplication.utils.SchedulerProvider;
-
 import javax.inject.Singleton;
 import dagger.BindsInstance;
 import dagger.Component;

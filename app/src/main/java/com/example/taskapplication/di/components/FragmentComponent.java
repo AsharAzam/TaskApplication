@@ -4,7 +4,6 @@ import com.example.taskapplication.di.modules.FragmentModule;
 import com.example.taskapplication.di.scope.FragmentScope;
 import com.example.taskapplication.ui.fragments.ChannelsFragment;
 import com.example.taskapplication.ui.fragments.SocialFragment;
-
 import dagger.Component;
 
 @FragmentScope

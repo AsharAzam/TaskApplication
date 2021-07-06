@@ -1,7 +1,6 @@
 package com.example.taskapplication.viewModels;
 
 import androidx.databinding.ObservableField;
-
 import com.example.taskapplication.data.network.models.ChannelModel;
 
 public class ChannelItemsViewModel {

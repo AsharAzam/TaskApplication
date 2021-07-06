@@ -1,16 +1,13 @@
 package com.example.taskapplication.data.local.db;
 
-
 import com.example.taskapplication.data.network.models.ChannelModel;
 import com.example.taskapplication.data.network.models.SocialModel;
-
 import java.util.List;
 import java.util.concurrent.Callable;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
 import io.reactivex.Observable;
+import io.reactivex.Single;
 
 @Singleton
 public class AppDbHelper implements DbHelper {
@@ -23,9 +20,8 @@ public class AppDbHelper implements DbHelper {
     }
 
     @Override
-    public Observable<List<ChannelModel>> getAllChannels() {
-        return  mAppDatabase.channelDao().loadAll()
-                .toObservable();
+    public Single<List<ChannelModel>> getAllChannels() {
+        return  mAppDatabase.channelDao().loadAll();
     }
 
     @Override
