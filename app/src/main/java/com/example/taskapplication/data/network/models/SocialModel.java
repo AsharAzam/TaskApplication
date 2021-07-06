@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Entity(tableName = "social" )
+@Entity(tableName = "social")
 public class SocialModel {
 
     @PrimaryKey(autoGenerate = true)

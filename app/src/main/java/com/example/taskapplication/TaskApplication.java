@@ -1,6 +1,8 @@
 package com.example.taskapplication;
 
 import android.app.Application;
+import android.content.Context;
+
 import com.example.taskapplication.di.components.AppComponent;
 import com.example.taskapplication.di.components.DaggerAppComponent;
 import com.example.taskapplication.utils.AppLogger;
@@ -12,11 +14,13 @@ import io.github.inflationx.calligraphy3.CalligraphyConfig;
 
 public class TaskApplication extends Application {
     public AppComponent appComponent;
+    private static Context context;
     @Inject
     CalligraphyConfig mCalligraphyConfig;
     @Override
     public void onCreate() {
         super.onCreate();
+        TaskApplication.context = getApplicationContext();
         Fresco.initialize(this);
         Stetho.initializeWithDefaults(this);
         appComponent = DaggerAppComponent.builder()
@@ -28,5 +32,8 @@ public class TaskApplication extends Application {
         AppLogger.init();
         //CalligraphyConfig.initDefault(mCalligraphyConfig);
 
+    }
+    public static Context getAppContext() {
+        return TaskApplication.context;
     }
 }

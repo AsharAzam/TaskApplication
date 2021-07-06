@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.taskapplication.viewModels.BaseViewModel" />
+            type="com.example.taskapplication.viewModels.SocialViewModel" />
 
     </data>
 

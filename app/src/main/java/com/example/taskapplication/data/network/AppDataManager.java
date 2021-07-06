@@ -51,7 +51,7 @@ public class AppDataManager implements DataManager{
         return mDbHelper.getAllSocials();
     }
 
-    @Override
+   /* @Override
     public Observable<Boolean> saveChannelData(List<ChannelModel> list) {
         return mDbHelper.saveChannelList(list);
     }
@@ -59,7 +59,7 @@ public class AppDataManager implements DataManager{
     @Override
     public Observable<Boolean> saveSocialData(List<SocialModel> list) {
         return mDbHelper.saveSocialList(list);
-    }
+    }*/
 
     @Override
     public Observable<List<ChannelModel>> getAllChannels() {
@@ -68,7 +68,7 @@ public class AppDataManager implements DataManager{
 
     @Override
     public Observable<List<SocialModel>> getAllSocials() {
-        return null;
+        return mDbHelper.getAllSocials();
     }
 
     @Override

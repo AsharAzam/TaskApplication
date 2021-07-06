@@ -12,6 +12,8 @@ import com.example.taskapplication.utils.SchedulerProvider;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.disposables.CompositeDisposable;
 
 
@@ -20,14 +22,13 @@ public class BaseViewModel<N> extends ViewModel {
     private final DataManager mDataManager;
     private final SchedulerProvider mSchedulerProvider;
     private CompositeDisposable mCompositeDisposable;
-    private WeakReference<N> mNavigator;
-    private final MutableLiveData<List<ChannelModel>> socialListLiveData;
+    @Inject
+    SocialViewModel viewModel;
 
     public BaseViewModel(DataManager manager, SchedulerProvider schedulerProvider) {
         this.mDataManager=manager;
         this.mSchedulerProvider = schedulerProvider;
         this.mCompositeDisposable = new CompositeDisposable();
-        this.socialListLiveData=new MutableLiveData<List<ChannelModel>>();
     }
 
     @Override
@@ -50,22 +51,9 @@ public class BaseViewModel<N> extends ViewModel {
         mIsLoading.set(isLoading);
     }
 
-    public N getNavigator() {
-        return mNavigator.get();
-    }
-
-    public void setNavigator(N navigator) {
-        this.mNavigator = new WeakReference<>(navigator);
-    }
-
     public SchedulerProvider getSchedulerProvider() {
         return mSchedulerProvider;
     }
 
-    public void setSocialListData(List<ChannelModel> data){
-        socialListLiveData.setValue(data);
-    }
-    public LiveData<List<ChannelModel>> getSocialListLiveData() {
-        return socialListLiveData;
-    }
+
 }

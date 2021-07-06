@@ -1,9 +1,13 @@
 package com.example.taskapplication.ui.adapters;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.taskapplication.TaskApplication;
 import com.example.taskapplication.data.network.models.SocialModel;
 import com.example.taskapplication.databinding.ItemEmptyLayoutBinding;
 import com.example.taskapplication.databinding.ItemSocialViewBinding;
@@ -95,10 +99,14 @@ public class SocialAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public void onItemClick(SocialModel model) {
             if (model != null) {
                 try {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                    itemView.getContext().startActivity(intent);
+                    PackageManager pm = TaskApplication.getAppContext().getPackageManager();
+                    Intent launchIntent = pm.getLaunchIntentForPackage(model.getPackageName());
+                    if (launchIntent==null){
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getUrl()));
+                        TaskApplication.getAppContext().startActivity(browserIntent);
+                    }else {
+                        TaskApplication.getAppContext().startActivity(launchIntent);
+                    }
                 } catch (Exception e) {
                     AppLogger.d("url error");
                 }

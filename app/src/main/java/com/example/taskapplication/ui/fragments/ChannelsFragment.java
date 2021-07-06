@@ -66,4 +66,9 @@ public class ChannelsFragment extends BaseFragment<FragmentChannelsBinding, Chan
         mFragmentChannelBinding.channelsRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mFragmentChannelBinding.channelsRecyclerView.setAdapter(adapter);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }

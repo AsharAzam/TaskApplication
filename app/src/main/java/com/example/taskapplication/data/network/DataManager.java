@@ -11,8 +11,8 @@ import io.reactivex.Observable;
 public interface DataManager extends DbHelper,ApiHelper {
     Observable<List<ChannelModel>> getChannelData();
     Observable<List<SocialModel>> getSocialData();
-    Observable<Boolean> saveChannelData(List<ChannelModel> list);
+   /* Observable<Boolean> saveChannelData(List<ChannelModel> list);
     Observable<Boolean> saveSocialData(List<SocialModel> list);
-
+*/
 
 }

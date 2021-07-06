@@ -23,7 +23,7 @@ public class SocialViewModel extends BaseViewModel{
         getDataFromLocal();
     }
 
-    private void getDataFromLocal() {
+    public void getDataFromLocal() {
         getCompositeDisposable().add(getDataManager()
                 .getSocialData()
                 .doOnNext(list -> Log.d(TAG, "getData: " + list.size()))
