@@ -18,10 +18,12 @@ android {
 
     buildTypes {
         debug {
+            minifyEnabled false
             buildConfigField("String", "BASE_URL", "\"https://apps-ivacy.s3.amazonaws.com/staging/android/\"")
         }
         release {
-            minifyEnabled false
+            buildConfigField("String", "BASE_URL", "\"https://apps-ivacy.s3.amazonaws.com/staging/android/\"")
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
